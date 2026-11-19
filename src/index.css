@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+:root {
+  --background: 210 40% 98%;
+  --foreground: 222 47% 11%;
+  --surface: 214 32% 95%;
+  --surface-elevated: 0 0% 100%;
+  --primary: 224 64% 33%;
+  --primary-hover: 224 66% 27%;
+  --primary-deep: 224 67% 18%;
+  --primary-foreground: 210 40% 98%;
+  --muted: 214 30% 91%;
+  --muted-foreground: 215 19% 35%;
+  --border: 214 26% 86%;
+  --border-subtle: 214 26% 91%;
+  --ring: 224 64% 33%;
+  --whatsapp: 142 64% 34%;
+  --whatsapp-foreground: 0 0% 100%;
+
+  --gradient-canvas: linear-gradient(180deg, hsl(210 40% 98%) 0%, hsl(214 32% 96%) 100%);
+  --gradient-navy: linear-gradient(145deg, hsl(224 67% 18%) 0%, hsl(224 64% 28%) 100%);
+  --shadow-card: 0 1px 2px hsl(222 47% 11% / 0.04), 0 10px 28px -12px hsl(224 64% 33% / 0.09);
+  --shadow-card-hover: 0 4px 10px hsl(222 47% 11% / 0.06), 0 22px 44px -16px hsl(224 64% 33% / 0.16);
+}
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-surface: hsl(var(--surface));
+  --color-surface-elevated: hsl(var(--surface-elevated));
+  --color-primary: hsl(var(--primary));
+  --color-primary-hover: hsl(var(--primary-hover));
+  --color-primary-deep: hsl(var(--primary-deep));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-border: hsl(var(--border));
+  --color-border-subtle: hsl(var(--border-subtle));
+  --color-ring: hsl(var(--ring));
+  --color-whatsapp: hsl(var(--whatsapp));
+  --color-whatsapp-foreground: hsl(var(--whatsapp-foreground));
+
+  --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    min-height: 100vh;
+    background: var(--gradient-canvas);
+    color: hsl(var(--foreground));
+    overflow-x: clip;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+.shadow-architectural {
+  box-shadow: var(--shadow-card);
+}
+
+.shadow-architectural-hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.bg-navy-architectural {
+  background: var(--gradient-navy);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
